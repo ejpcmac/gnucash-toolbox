@@ -1,0 +1,20 @@
+include = ["*.toml", ".config/*.toml", "xtask/**/*.toml"]
+exclude = [".cargo/config.toml"]
+
+[formatting]
+indent_string = "    "
+reorder_arrays = true
+
+[[rule]]
+include = ["**/Cargo.toml"]
+keys = ["*dependencies", "features", "lints.*", "target.*.*dependencies"]
+
+[rule.formatting]
+reorder_keys = true
+
+[[rule]]
+include = ["**/Cargo.toml"]
+keys = ["*dependencies.*", "target.*.*dependencies.*"]
+
+[rule.formatting]
+reorder_keys = false

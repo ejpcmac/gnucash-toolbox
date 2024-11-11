@@ -1,0 +1,18 @@
+##
+## Application artifacts
+##
+
+# direnv cache for Nix shells
+/.direnv/
+
+# Rust build directory
+/target/
+
+# Nix build output.
+/result
+
+##
+## Editor artifacts
+##
+
+/.history/
