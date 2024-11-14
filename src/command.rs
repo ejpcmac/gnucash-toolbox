@@ -15,14 +15,16 @@
 
 //! The Command Line Interface for gnucash-toolbox.
 
+mod add;
 mod hello;
 mod helpers;
+mod list;
 
 use clap::{ArgAction, Parser, Subcommand};
 use eyre::{Report, Result};
 use tracing_subscriber::fmt::format::FmtSpan;
 
-use self::hello::Hello;
+use self::{add::Add, hello::Hello, list::List};
 
 /// The long version information.
 const LONG_VERSION: &str = concat!(
@@ -60,6 +62,8 @@ pub struct GnucashToolbox {
 pub enum GnucashToolboxCommand {
     /// Say hello.
     Hello(Hello),
+    List(List),
+    Add(Add),
 }
 
 /// A command.
@@ -86,6 +90,8 @@ impl GnucashToolboxCommand {
     pub fn run(&self) -> Result<()> {
         match self {
             Self::Hello(hello) => hello.run(),
+            Self::List(list) => list.run(),
+            Self::Add(add) => add.run(),
         }
     }
 }
@@ -102,9 +108,9 @@ fn setup_tracing(verbosity: u8) {
 fn env_filter(verbosity: u8) -> &'static str {
     match verbosity {
         0 => "off",
-        1 => "git_z=info",
-        2 => "git_z=debug",
-        3_u8..=u8::MAX => "git_z=trace",
+        1 => "gnucash_toolbox=info",
+        2 => "gnucash_toolbox=debug",
+        3_u8..=u8::MAX => "gnucash_toolbox=trace",
     }
 }
 

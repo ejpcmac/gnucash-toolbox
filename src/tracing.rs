@@ -18,7 +18,6 @@
 use crate::helpers::uncapitalise;
 
 /// An extension trait for [`Result`] to insert logging.
-#[expect(dead_code, reason = "not yet used")]
 pub trait LogResult {
     /// Logs the error.
     ///

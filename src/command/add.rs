@@ -13,12 +13,32 @@
 // You should have received a copy of the GNU General Public License
 // along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-//! A CLI toolbox to work with GnuCash databases.
+//! The `add` subcommand.
 
-mod command;
-mod database;
-mod helpers;
-mod tracing;
+use clap::Parser;
+use eyre::Result;
 
-#[doc(hidden)]
-pub use command::GnucashToolbox;
+use crate::database::Database;
+
+/// Arguments for `gnucash-toolbox add`.
+#[derive(Debug, Parser)]
+pub struct Add {
+    /// The key to add.
+    key: String,
+    /// The value to associate to the key.
+    value: String,
+}
+
+impl super::Command for Add {
+    #[tracing::instrument(name = "add", level = "trace", skip_all)]
+    fn run(&self) -> Result<()> {
+        tracing::info!(params = ?self, "running add");
+
+        let Self { key, value } = self;
+
+        let mut db = Database::open("sqlite://db.sqlite")?;
+        db.add_entry(key, value)?;
+
+        Ok(())
+    }
+}

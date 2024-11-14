@@ -11,6 +11,9 @@
 # Nix build output.
 /result
 
+# SQLite database.
+db.sqlite
+
 ##
 ## Editor artifacts
 ##

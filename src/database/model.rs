@@ -13,12 +13,28 @@
 // You should have received a copy of the GNU General Public License
 // along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-//! A CLI toolbox to work with GnuCash databases.
+//! Model of the GnuCash database.
 
-mod command;
-mod database;
-mod helpers;
-mod tracing;
+use diesel::prelude::*;
 
-#[doc(hidden)]
-pub use command::GnucashToolbox;
+/// A key-value store.
+#[derive(Debug, Queryable, Selectable)]
+#[diesel(table_name = super::schema::entries)]
+#[diesel(check_for_backend(diesel::sqlite::Sqlite))]
+pub struct Entry {
+    /// The primary key.
+    pub id: i32,
+    /// The key.
+    pub key: String,
+    /// The value.
+    pub value: String,
+}
+
+#[derive(Debug, Insertable)]
+#[diesel(table_name = super::schema::entries)]
+pub struct NewEntry<'a> {
+    /// The key.
+    pub key: &'a str,
+    /// The value.
+    pub value: &'a str,
+}

@@ -76,8 +76,13 @@
             let
               git-z = inputs'.git-z.packages.git-z;
 
+              dependencies = with pkgs; [
+                sqlite
+              ];
+
               buildToolchain = with pkgs; [
                 rust-toolchain
+                pkg-config
               ] ++ lib.optionals (!stdenv.isDarwin) [
                 clang
               ];
@@ -102,6 +107,7 @@
                 cargo-bloat
                 cargo-outdated
                 cargo-watch
+                diesel-cli
                 git
                 git-z
                 gitAndTools.gitflow
@@ -128,7 +134,8 @@
               '';
 
                 packages =
-                  buildToolchain
+                  dependencies
+                  ++ buildToolchain
                   ++ checkToolchain
                   ++ ideToolchain
                   ++ developmentTools;
@@ -159,7 +166,8 @@
                 name = "gnucash-toolbox CI";
 
                 packages =
-                  buildToolchain
+                  dependencies
+                  ++ buildToolchain
                   ++ checkToolchain;
               };
 

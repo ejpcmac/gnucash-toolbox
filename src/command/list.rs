@@ -13,12 +13,28 @@
 // You should have received a copy of the GNU General Public License
 // along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-//! A CLI toolbox to work with GnuCash databases.
+//! The `list` subcommand.
 
-mod command;
-mod database;
-mod helpers;
-mod tracing;
+use clap::Parser;
+use eyre::Result;
 
-#[doc(hidden)]
-pub use command::GnucashToolbox;
+use crate::database::{model::Entry, Database};
+
+/// Arguments for `gnucash-toolbox list`.
+#[derive(Debug, Parser)]
+pub struct List;
+
+impl super::Command for List {
+    #[tracing::instrument(name = "list", level = "trace", skip_all)]
+    fn run(&self) -> Result<()> {
+        tracing::info!(params = ?self, "running list");
+
+        let mut db = Database::open("sqlite://db.sqlite")?;
+        for entry in db.list_entries()? {
+            let Entry { key, value, .. } = entry;
+            println!("- {key}: {value}");
+        }
+
+        Ok(())
+    }
+}

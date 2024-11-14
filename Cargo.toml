@@ -17,11 +17,16 @@ license = "wix/gpl-3.0.rtf"
 [dependencies]
 clap = { version = "4", features = ["derive", "wrap_help"] }
 color-eyre = "0.6"
+diesel = { version = "2.2", features = [
+    "returning_clauses_for_sqlite_3_35",
+    "sqlite",
+] }
 # colored = "2"
 # exitcode = "1"
 eyre = "0.6"
+libsqlite3-sys = { version = "0.30", features = ["bundled"] }
 # indoc = "2"
-# thiserror = "2"
+thiserror = "2"
 tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 
