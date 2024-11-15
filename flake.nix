@@ -104,9 +104,11 @@
                 cargo-bloat
                 cargo-outdated
                 cargo-watch
+                diesel-cli
                 git
                 git-z
                 gitAndTools.gitflow
+                sqlite
               ];
 
               devEnv = [
