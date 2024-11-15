@@ -102,9 +102,9 @@ fn setup_tracing(verbosity: u8) {
 fn env_filter(verbosity: u8) -> &'static str {
     match verbosity {
         0 => "off",
-        1 => "git_z=info",
-        2 => "git_z=debug",
-        3_u8..=u8::MAX => "git_z=trace",
+        1 => "gnucash_toolbox=info",
+        2 => "gnucash_toolbox=debug",
+        3_u8..=u8::MAX => "gnucash_toolbox=trace",
     }
 }
 
