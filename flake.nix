@@ -176,9 +176,8 @@
               };
 
               # NOTE: Use the musl target to build a statically-linked binary.
-              # We only add the target in a specialised devshell to avoid
-              # cluttering the toolchain defined in `rust-toolchain.toml` on all
-              # platforms.
+              # We add the target in a specialised devshell to avoid cluttering
+              # the toolchain defined in `rust-toolchain.toml` on all platforms.
               deb = {
                 name = "cargo-deb";
                 packages = with pkgs; [
@@ -187,6 +186,13 @@
                   })
                   clang
                   cargo-deb
+                ];
+
+                env = [
+                  {
+                    name = "TARGET_CC";
+                    value = "${pkgs.pkgsCross.musl64.clang}/bin/clang";
+                  }
                 ];
               };
 
