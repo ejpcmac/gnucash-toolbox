@@ -107,6 +107,13 @@
                 gitAndTools.gitflow
               ];
 
+              devEnv = [
+                {
+                  name = "RUSTFLAGS";
+                  value = "-Clink-arg=-fuse-ld=${pkgs.mold}/bin/mold";
+                }
+              ];
+
               ideEnv = [
                 {
                   name = "NIX_PATH";
@@ -134,7 +141,8 @@
                   ++ developmentTools;
 
                 env =
-                  ideEnv;
+                  devEnv
+                  ++ ideEnv;
 
                 commands = [
                   {
