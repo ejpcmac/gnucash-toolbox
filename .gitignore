@@ -11,6 +11,9 @@
 # Nix build output.
 /result
 
+# GnuCash database.
+*.gnucash
+
 ##
 ## Editor artifacts
 ##
