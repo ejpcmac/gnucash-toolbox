@@ -64,6 +64,7 @@ list = [
     "cargo",
     "clippy",
     "committed",
+    "diesel",
     "direnv",
     "editorconfig",
     "git",
