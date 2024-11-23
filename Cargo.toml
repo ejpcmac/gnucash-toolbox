@@ -1,5 +1,5 @@
 [workspace]
-members = ["gnc-cli", "gnc-helpers", "xtask"]
+members = ["gnc-cli", "gnc-db-schema", "gnc-helpers", "xtask"]
 default-members = ["gnc-cli"]
 resolver = "2"
 

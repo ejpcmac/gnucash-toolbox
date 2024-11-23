@@ -37,6 +37,9 @@ list = [
     "cli",
     "command",
 
+    # Database
+    "db:schema",
+
     # Helpers
     "h:helpers",
     "h:tracing",

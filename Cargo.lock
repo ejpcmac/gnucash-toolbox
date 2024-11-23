@@ -288,6 +288,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "gnc-db-schema"
+version = "1.0.0-dev.0"
+
+[[package]]
 name = "gnc-helpers"
 version = "0.1.0-dev.0"
 dependencies = [

@@ -1,0 +1,12 @@
+[package]
+name = "gnc-db-schema"
+version = "1.0.0-dev.0"
+authors.workspace = true
+categories = ["database", "finance"]
+edition.workspace = true
+homepage.workspace = true
+keywords = ["gnucash"]
+license.workspace = true
+readme.workspace = true
+repository.workspace = true
+description = "Diesel schema of the GnuCash database format."
