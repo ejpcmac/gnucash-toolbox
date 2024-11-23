@@ -1,0 +1,18 @@
+[package]
+name = "gnc-helpers"
+version = "0.1.0-dev.0"
+authors.workspace = true
+categories = ["development-tools"]
+edition.workspace = true
+homepage.workspace = true
+keywords = ["helpers"]
+license.workspace = true
+readme.workspace = true
+repository.workspace = true
+description = "Common helpers for gnucash-toolbox."
+
+[dependencies]
+tracing = "0.1"
+
+[lints]
+workspace = true

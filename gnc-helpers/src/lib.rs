@@ -13,29 +13,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-//! Utilities to help with tracing.
+//! Common helpers for gnucash-toolbox.
 
-use crate::helpers::uncapitalise;
-
-/// An extension trait for [`Result`] to insert logging.
-#[expect(dead_code, reason = "not yet used")]
-pub trait LogResult {
-    /// Logs the error.
-    ///
-    /// If the [`Result`] is an [`Err`], logs the error. Otherwise this function
-    /// does nothing.
-    fn log_err(self) -> Self;
-}
-
-impl<T, E> LogResult for Result<T, E>
-where
-    E: std::fmt::Display + std::fmt::Debug,
-{
-    fn log_err(self) -> Self {
-        if let Err(error) = &self {
-            tracing::error!(?error, "{}", uncapitalise(&error.to_string()));
-        }
-
-        self
-    }
-}
+pub mod helpers;
+pub mod tracing;

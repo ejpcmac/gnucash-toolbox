@@ -33,13 +33,14 @@ debug = "commit used for debugging purposes, not to be integrated"
 accept = "list"
 list = [
     # CLI
+    "c:hello",
     "cli",
     "command",
-    "helpers",
-    "tracing",
 
-    # Commands
-    "c:hello",
+    # Helpers
+    "h:helpers",
+    "h:tracing",
+    "helpers",
 
     # Cargo xtasks
     "xt:check",
