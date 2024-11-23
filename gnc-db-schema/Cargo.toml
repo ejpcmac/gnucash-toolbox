@@ -10,3 +10,6 @@ license.workspace = true
 readme.workspace = true
 repository.workspace = true
 description = "Diesel schema of the GnuCash database format."
+
+[dependencies]
+diesel = "2"
