@@ -1,4 +1,4 @@
-//! The build script for gnucash-toolbox.
+//! The build script for gnc-cli.
 
 use std::{env, fs, io, process::Command};
 

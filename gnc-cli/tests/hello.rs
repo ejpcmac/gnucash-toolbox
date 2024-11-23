@@ -1,4 +1,4 @@
-// gnucash-toolbox - A CLI toolbox to work with GnuCash databases.
+// gnucash-toolbox - A toolbox to work with GnuCash databases.
 // Copyright (C) 2024 Jean-Philippe Cugnet <jean-philippe@cugnet.eu>
 //
 // This program is free software: you can redistribute it and/or modify
@@ -13,7 +13,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-//! CLI tests for `gnucash-toolbox hello`.
+//! CLI tests for `gnc hello`.
 
 // NOTE: rexpect is only compatible with Unix-like systems, so let’s just not
 // compile the CLI tests on Windows.

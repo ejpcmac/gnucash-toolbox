@@ -1,0 +1,46 @@
+[package]
+name = "gnc-cli"
+version = "0.1.0-dev.0"
+authors.workspace = true
+categories = ["command-line-utilities", "finance"]
+edition.workspace = true
+homepage.workspace = true
+keywords.workspace = true
+license.workspace = true
+repository.workspace = true
+readme.workspace = true
+description = "A toolbox to work with GnuCash databases."
+
+[package.metadata.deb]
+name = "gnucash-toolbox"
+
+[package.metadata.wix]
+license = "wix/gpl-3.0.rtf"
+
+[dependencies]
+clap = { version = "4", features = ["derive", "wrap_help"] }
+color-eyre = "0.6"
+# colored = "2"
+# exitcode = "1"
+eyre = "0.6"
+# indoc = "2"
+# thiserror = "2"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+[build-dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[target.'cfg(not(windows))'.dev-dependencies]
+assert_cmd = "2"
+rexpect = "0.6"
+# assert_fs = "1"
+# predicates = "3"
+
+[[bin]]
+name = "gnc"
+path = "src/main.rs"
+
+[lints]
+workspace = true

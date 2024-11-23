@@ -1,5 +1,5 @@
-include = ["*.toml", ".config/*.toml", "xtask/**/*.toml"]
-exclude = [".cargo/config.toml"]
+include = ["*.toml", ".config/*.toml", "gnc-cli/**/*.toml", "xtask/**/*.toml"]
+exclude = ["**/.cargo/config.toml"]
 
 [formatting]
 indent_string = "    "

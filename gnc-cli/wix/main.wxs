@@ -69,7 +69,7 @@
 
         <Package Id='*'
             Keywords='Installer'
-            Description='A CLI toolbox to work with GnuCash databases.'
+            Description='A toolbox to work with GnuCash databases.'
             Manufacturer='Jean-Philippe Cugnet'
             InstallerVersion='450'
             Languages='1033'
@@ -98,7 +98,7 @@
                     <Component Id='License' Guid='*'>
                         <File Id='LicenseFile'
                             DiskId='1'
-                            Source='wix/gpl-3.0.rtf'
+                            Source='gnc-cli/wix/gpl-3.0.rtf'
                             KeyPath='yes'/>
                     </Component>
 
@@ -185,7 +185,7 @@
           Disabling the EULA dialog in the installer requires commenting out
           or removing the following `WixVariable` tag
         -->
-        <WixVariable Id='WixUILicenseRtf' Value='wix/gpl-3.0.rtf'/>
+        <WixVariable Id='WixUILicenseRtf' Value='gnc-cli/wix/gpl-3.0.rtf'/>
 
 
         <!--

@@ -1,4 +1,4 @@
-// gnucash-toolbox - A CLI toolbox to work with GnuCash databases.
+// gnucash-toolbox - A toolbox to work with GnuCash databases.
 // Copyright (C) 2024 Jean-Philippe Cugnet <jean-philippe@cugnet.eu>
 //
 // This program is free software: you can redistribute it and/or modify
@@ -13,11 +13,28 @@
 // You should have received a copy of the GNU General Public License
 // along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-//! A CLI toolbox to work with GnuCash databases.
+//! The `hello` subcommand.
 
-mod command;
-mod helpers;
-mod tracing;
+use clap::Parser;
+use eyre::Result;
 
-#[doc(hidden)]
-pub use command::GnucashToolbox;
+/// Arguments for `gnc hello`.
+#[derive(Debug, Parser)]
+pub struct Hello {
+    /// Who to say hello to.
+    name: Option<String>,
+}
+
+impl super::Command for Hello {
+    #[tracing::instrument(name = "hello", level = "trace", skip_all)]
+    fn run(&self) -> Result<()> {
+        tracing::info!(params = ?self, "running hello");
+
+        let Self { name } = self;
+
+        let name = name.as_deref().unwrap_or("world");
+        println!("Hello, {name}!");
+
+        Ok(())
+    }
+}

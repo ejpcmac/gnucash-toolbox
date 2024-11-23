@@ -1,4 +1,4 @@
-// gnucash-toolbox - A CLI toolbox to work with GnuCash databases.
+// gnucash-toolbox - A toolbox to work with GnuCash databases.
 // Copyright (C) 2024 Jean-Philippe Cugnet <jean-philippe@cugnet.eu>
 //
 // This program is free software: you can redistribute it and/or modify
@@ -39,25 +39,25 @@ const LONG_VERSION: &str = concat!(
     env!("BUILT_BY"),
 );
 
-/// A CLI toolbox to work with GnuCash databases.
+/// A toolbox to work with GnuCash databases.
 #[derive(Debug, Parser)]
 #[command(
     author,
     version = env!("VERSION_WITH_GIT"),
     long_version = LONG_VERSION,
 )]
-pub struct GnucashToolbox {
+pub struct GncCli {
     /// The command to run.
     #[command(subcommand)]
-    command: GnucashToolboxCommand,
+    command: GncCliCommand,
     /// The verbosity level.
     #[arg(short = 'v', action = ArgAction::Count, global = true)]
     verbosity: u8,
 }
 
-/// The subcommands of `gnucash-toolbox`.
+/// The subcommands of `gnc`.
 #[derive(Debug, Subcommand)]
-pub enum GnucashToolboxCommand {
+pub enum GncCliCommand {
     /// Say hello.
     Hello(Hello),
 }
@@ -68,8 +68,8 @@ trait Command {
     fn run(&self) -> Result<()>;
 }
 
-impl GnucashToolbox {
-    /// Runs gnucash-toolbox.
+impl GncCli {
+    /// Runs gnc.
     pub fn run() -> Result<()> {
         let args = Self::parse();
         setup_tracing(args.verbosity);
@@ -81,7 +81,7 @@ impl GnucashToolbox {
     }
 }
 
-impl GnucashToolboxCommand {
+impl GncCliCommand {
     /// Runs the given command.
     pub fn run(&self) -> Result<()> {
         match self {

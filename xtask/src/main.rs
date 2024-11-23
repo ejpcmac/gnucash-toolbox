@@ -1,4 +1,4 @@
-// gnucash-toolbox - A CLI toolbox to work with GnuCash databases.
+// gnucash-toolbox - A toolbox to work with GnuCash databases.
 // Copyright (C) 2024 Jean-Philippe Cugnet <jean-philippe@cugnet.eu>
 //
 // This program is free software: you can redistribute it and/or modify
@@ -131,15 +131,8 @@ fn check_commits(ctx: &mut Context) {
 }
 
 fn check_format(ctx: &mut Context) {
-    let editorconfig_excluded_files = [
-        "**.lock",
-        "**.rs",
-        "**.toml",
-        "LICENSE",
-        "templates/*",
-        "wix/gpl-3.0.rtf",
-        "wix/main.wxs",
-    ];
+    let editorconfig_excluded_files =
+        ["**.lock", "**.rs", "**.rtf", "**.toml", "**.wxs", "LICENSE"];
 
     let exclude = format!("{{{}}}", editorconfig_excluded_files.join(","));
 
@@ -265,7 +258,7 @@ fn check_packages(ctx: &mut Context) {
     action!(
         ctx,
         "Checking that the MSI package builds properly",
-        "cargo wix --package gnucash-toolbox --nocapture",
+        "cargo wix --package gnc-cli --nocapture",
     );
 }
 

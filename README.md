@@ -1,6 +1,6 @@
 # gnucash-toolbox
 
-A CLI toolbox to work with GnuCash databases.
+A toolbox to work with GnuCash databases.
 
 *This is a work in progress, please look at the `develop` branch for ongoing
 development.*
@@ -41,9 +41,9 @@ it to `gnc`—or `gnc.exe` on Windows—and put it somewhere in your `PATH`.
 
 ### Installation with Cargo
 
-If you are a **Rust programmer**, you can install `gnucash-toolbox` by running:
+If you are a **Rust programmer**, you can install `gnc` by running:
 
-    cargo install gnucash-toolbox
+    cargo install gnc-cli
 
 ## Building an installer
 
@@ -65,7 +65,7 @@ With a Rust toolchain installed on your machine, you can:
 2. Run:
 
         > cargo install cargo-wix
-        > cargo wix --package gnucash-toolbox --nocapture
+        > cargo wix --package gnc-cli --nocapture
 
 You should find an installer in `target/wix/`.
 

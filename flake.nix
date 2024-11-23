@@ -1,5 +1,5 @@
 {
-  description = "A CLI toolbox to work with GnuCash databases.";
+  description = "A toolbox to work with GnuCash databases.";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs";
@@ -60,6 +60,8 @@
               default = self'.packages.${packageName};
 
               ${packageName} = naersk.buildPackage {
+                name = packageName;
+                version = "0.1.0-dev.0";
                 src = ./.;
                 RUSTFLAGS = "-A missing_docs";
                 FLAKE_REVISION = self.shortRev or

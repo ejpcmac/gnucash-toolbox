@@ -127,7 +127,7 @@ jobs:
       - name: Install cargo-wix
         run: cargo install cargo-wix
       - name: Build the MSI package
-        run: cargo wix --package gnucash-toolbox --nocapture
+        run: cargo wix --package gnc-cli --nocapture
       - name: Upload the MSI package
         uses: actions/upload-artifact@v4
         with:

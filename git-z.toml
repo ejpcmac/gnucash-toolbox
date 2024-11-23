@@ -32,14 +32,10 @@ debug = "commit used for debugging purposes, not to be integrated"
 # of valid scopes is required.
 accept = "list"
 list = [
-    # Binary
-    "main",
-
-    # Lib
+    # CLI
     "cli",
     "command",
     "helpers",
-    "lib",
     "tracing",
 
     # Commands

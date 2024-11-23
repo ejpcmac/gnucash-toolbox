@@ -1,4 +1,4 @@
-// gnucash-toolbox - A CLI toolbox to work with GnuCash databases.
+// gnucash-toolbox - A toolbox to work with GnuCash databases.
 // Copyright (C) 2024 Jean-Philippe Cugnet <jean-philippe@cugnet.eu>
 //
 // This program is free software: you can redistribute it and/or modify

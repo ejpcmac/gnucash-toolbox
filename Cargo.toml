@@ -1,48 +1,18 @@
-[package]
-name = "gnucash-toolbox"
-version = "0.1.0-dev.0"
+[workspace]
+members = ["gnc-cli", "xtask"]
+default-members = ["gnc-cli"]
+resolver = "2"
+
+[workspace.package]
 authors = ["Jean-Philippe Cugnet <jean-philippe@cugnet.eu>"]
-categories = ["command-line-utilities"]
 edition = "2021"
 homepage = "https://github.com/ejpcmac/gnucash-toolbox"
 keywords = ["gnucash"]
 license = "GPL-3.0-only"
+readme = "README.md"
 repository = "https://github.com/ejpcmac/gnucash-toolbox"
-resolver = "2"
-description = "A CLI toolbox to work with GnuCash databases."
 
-[package.metadata.wix]
-license = "wix/gpl-3.0.rtf"
-
-[dependencies]
-clap = { version = "4", features = ["derive", "wrap_help"] }
-color-eyre = "0.6"
-# colored = "2"
-# exitcode = "1"
-eyre = "0.6"
-# indoc = "2"
-# thiserror = "2"
-tracing = "0.1"
-tracing-subscriber = { version = "0.3", features = ["env-filter"] }
-
-[build-dependencies]
-serde = { version = "1", features = ["derive"] }
-serde_json = "1"
-
-[target.'cfg(not(windows))'.dev-dependencies]
-assert_cmd = "2"
-rexpect = "0.6"
-# assert_fs = "1"
-# predicates = "3"
-
-[[bin]]
-name = "gnc"
-path = "src/main.rs"
-
-[workspace]
-members = ["xtask"]
-
-[lints.rust]
+[workspace.lints.rust]
 # Forbidden
 unsafe_code = "forbid"
 unsafe_op_in_unsafe_fn = "forbid"
@@ -60,7 +30,7 @@ nonstandard_style = { level = "warn", priority = -1 }
 rust_2018_idioms = { level = "warn", priority = -1 }
 single_use_lifetimes = "warn"
 
-[lints.clippy]
+[workspace.lints.clippy]
 # Deny some lints from the restrictions set.
 multiple_unsafe_ops_per_block = "deny"
 undocumented_unsafe_blocks = "deny"
