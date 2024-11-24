@@ -38,6 +38,7 @@ list = [
     "command",
 
     # Database
+    "db:api",
     "db:schema",
 
     # Helpers

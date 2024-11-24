@@ -1,0 +1,17 @@
+[package]
+name = "gnc-database"
+version = "0.1.0-dev.0"
+authors.workspace = true
+categories = ["database", "finance"]
+edition.workspace = true
+homepage.workspace = true
+keywords = ["gnucash"]
+license.workspace = true
+readme.workspace = true
+repository.workspace = true
+description = "A library to read and update a GnuCash database"
+
+[dependencies]
+
+[lints]
+workspace = true
