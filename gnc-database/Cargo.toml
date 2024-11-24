@@ -12,6 +12,11 @@ repository.workspace = true
 description = "A library to read and update a GnuCash database"
 
 [dependencies]
+libsqlite3-sys = { version = "0.30", features = ["bundled"] }
+
+[dependencies.diesel]
+version = "2"
+features = ["returning_clauses_for_sqlite_3_35", "sqlite"]
 
 [lints]
 workspace = true
