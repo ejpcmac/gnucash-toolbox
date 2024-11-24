@@ -9,7 +9,7 @@ keywords = ["gnucash"]
 license.workspace = true
 readme.workspace = true
 repository.workspace = true
-description = "A library to read and update a GnuCash database"
+description = "A library to read and update a GnuCash database."
 
 [dependencies]
 libsqlite3-sys = { version = "0.30", features = ["bundled"] }
