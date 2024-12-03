@@ -12,7 +12,14 @@ repository.workspace = true
 description = "A library to read and update a GnuCash database."
 
 [dependencies]
+bigdecimal = "0.4"
+chrono = "0.4"
+gnc-db-schema = { path = "../gnc-db-schema" }
+gnc-helpers = { path = "../gnc-helpers" }
 libsqlite3-sys = { version = "0.30", features = ["bundled"] }
+strum = "0.26"
+strum_macros = "0.26"
+thiserror = "2"
 
 [dependencies.diesel]
 version = "2"

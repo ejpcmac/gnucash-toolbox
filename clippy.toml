@@ -1,3 +1,4 @@
+allowed-wildcard-imports = ["dsl"]
 allowed-duplicate-crates = [
     "regex-automata",
     "regex-syntax",
@@ -13,4 +14,4 @@ allowed-duplicate-crates = [
 ]
 allowed-idents-below-min-chars = ["c", "i", "j", "n", "s"]
 check-private-items = true
-doc-valid-idents = ["GnuCash"]
+doc-valid-idents = ["GnuCash", "SQLite"]

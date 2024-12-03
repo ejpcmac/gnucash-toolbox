@@ -20,11 +20,13 @@ license = "wix/gpl-3.0.rtf"
 [dependencies]
 clap = { version = "4", features = ["derive", "wrap_help"] }
 color-eyre = "0.6"
+comfy-table = "7"
 # colored = "2"
 # exitcode = "1"
 eyre = "0.6"
 # indoc = "2"
 # thiserror = "2"
+gnc-database = { path = "../gnc-database" }
 tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 

@@ -15,14 +15,18 @@
 
 //! The Command Line Interface for gnucash-toolbox.
 
+// mod add;
 mod hello;
 mod helpers;
+mod list;
 
 use clap::{ArgAction, Parser, Subcommand};
 use eyre::{Report, Result};
 use tracing_subscriber::fmt::format::FmtSpan;
 
 use self::hello::Hello;
+// use self::add::Add;
+use self::list::List;
 
 /// The long version information.
 const LONG_VERSION: &str = concat!(
@@ -60,6 +64,9 @@ pub struct GncCli {
 pub enum GncCliCommand {
     /// Say hello.
     Hello(Hello),
+    /// Lists.
+    List(List),
+    // Add(Add),
 }
 
 /// A command.
@@ -86,6 +93,8 @@ impl GncCliCommand {
     pub fn run(&self) -> Result<()> {
         match self {
             Self::Hello(hello) => hello.run(),
+            Self::List(list) => list.run(),
+            // Self::Add(add) => add.run(),
         }
     }
 }
